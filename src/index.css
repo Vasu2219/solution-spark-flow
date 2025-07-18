@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,81 +18,81 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 210 30% 8%;
 
-    --primary: 202 78% 46%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 202 78% 85%;
-    --secondary-foreground: 202 78% 20%;
+    --secondary: 217 91% 85%;
+    --secondary-foreground: 217 91% 20%;
 
-    --muted: 202 20% 96%;
-    --muted-foreground: 202 10% 40%;
+    --muted: 217 20% 96%;
+    --muted-foreground: 217 10% 40%;
 
-    --accent: 202 78% 85%;
-    --accent-foreground: 202 78% 20%;
+    --accent: 217 91% 85%;
+    --accent-foreground: 217 91% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 202 20% 88%;
-    --input: 202 20% 88%;
-    --ring: 202 78% 46%;
+    --border: 217 20% 88%;
+    --input: 217 20% 88%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 202 20% 98%;
-    --sidebar-foreground: 202 30% 20%;
-    --sidebar-primary: 202 78% 46%;
+    --sidebar-background: 217 20% 98%;
+    --sidebar-foreground: 217 30% 20%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 202 20% 95%;
-    --sidebar-accent-foreground: 202 78% 20%;
-    --sidebar-border: 202 20% 90%;
-    --sidebar-ring: 202 78% 46%;
+    --sidebar-accent: 217 20% 95%;
+    --sidebar-accent-foreground: 217 91% 20%;
+    --sidebar-border: 217 20% 90%;
+    --sidebar-ring: 217 91% 60%;
 
-    /* Updated gradients to match the reference blue */
-    --gradient-primary: linear-gradient(135deg, hsl(202, 78%, 46%) 0%, hsl(202, 78%, 56%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(202, 78%, 46%) 0%, hsl(202, 78%, 56%) 50%, hsl(202, 78%, 66%) 100%);
+    /* Updated gradients to match Bootstrap blue */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(217, 91%, 70%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(217, 91%, 70%) 50%, hsl(217, 91%, 80%) 100%);
   }
 
   .dark {
-    --background: 202 30% 8%;
-    --foreground: 202 20% 95%;
+    --background: 217 30% 8%;
+    --foreground: 217 20% 95%;
 
-    --card: 202 30% 10%;
-    --card-foreground: 202 20% 95%;
+    --card: 217 30% 10%;
+    --card-foreground: 217 20% 95%;
 
-    --popover: 202 30% 10%;
-    --popover-foreground: 202 20% 95%;
+    --popover: 217 30% 10%;
+    --popover-foreground: 217 20% 95%;
 
-    --primary: 202 78% 56%;
-    --primary-foreground: 202 30% 8%;
+    --primary: 217 91% 70%;
+    --primary-foreground: 217 30% 8%;
 
-    --secondary: 202 30% 15%;
-    --secondary-foreground: 202 20% 85%;
+    --secondary: 217 30% 15%;
+    --secondary-foreground: 217 20% 85%;
 
-    --muted: 202 30% 15%;
-    --muted-foreground: 202 20% 60%;
+    --muted: 217 30% 15%;
+    --muted-foreground: 217 20% 60%;
 
-    --accent: 202 30% 15%;
-    --accent-foreground: 202 20% 85%;
+    --accent: 217 30% 15%;
+    --accent-foreground: 217 20% 85%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 202 30% 18%;
-    --input: 202 30% 18%;
-    --ring: 202 78% 56%;
+    --border: 217 30% 18%;
+    --input: 217 30% 18%;
+    --ring: 217 91% 70%;
     
-    --sidebar-background: 202 40% 5%;
-    --sidebar-foreground: 202 20% 90%;
-    --sidebar-primary: 202 78% 56%;
+    --sidebar-background: 217 40% 5%;
+    --sidebar-foreground: 217 20% 90%;
+    --sidebar-primary: 217 91% 70%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 202 30% 12%;
-    --sidebar-accent-foreground: 202 20% 85%;
-    --sidebar-border: 202 30% 15%;
-    --sidebar-ring: 202 78% 56%;
+    --sidebar-accent: 217 30% 12%;
+    --sidebar-accent-foreground: 217 20% 85%;
+    --sidebar-border: 217 30% 15%;
+    --sidebar-ring: 217 91% 70%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(202, 78%, 56%) 0%, hsl(202, 78%, 66%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(202, 78%, 56%) 0%, hsl(202, 78%, 66%) 50%, hsl(202, 78%, 76%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 70%) 0%, hsl(217, 91%, 80%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 70%) 0%, hsl(217, 91%, 80%) 50%, hsl(217, 91%, 90%) 100%);
   }
 }
 
