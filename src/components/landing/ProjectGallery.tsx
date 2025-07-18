@@ -51,20 +51,20 @@ const projects = [
 
 export const ProjectGallery = () => {
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 gradient-primary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Featured Projects and Customer Stories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Explore our portfolio of successful projects across various industries and technologies.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
+            <Card key={index} className="group hover:shadow-lg transition-all duration-300 overflow-hidden bg-white/95 backdrop-blur">
               <div className="aspect-video bg-muted/50 relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -72,7 +72,7 @@ export const ProjectGallery = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4">
-                  <Badge variant={project.type === "Industrial" ? "default" : "secondary"}>
+                  <Badge variant={project.type === "Industrial" ? "default" : "secondary"} className="bg-primary text-white">
                     {project.type}
                   </Badge>
                 </div>
@@ -86,7 +86,7 @@ export const ProjectGallery = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, idx) => (
-                    <Badge key={idx} variant="outline" className="text-xs">
+                    <Badge key={idx} variant="outline" className="text-xs border-primary/20">
                       {tag}
                     </Badge>
                   ))}
