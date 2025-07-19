@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# Solution Spark Flow
 
-## Project info
+A modern React application built with Vite, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/328344cb-5294-41e1-ac38-2231ff663ab6
+## 🚀 CI/CD Pipeline
 
-## How can I edit this code?
+This project includes a complete CI/CD pipeline for automated deployment to Vercel.
 
-There are several ways of editing your application.
+### Pipeline Features
 
-**Use Lovable**
+- **Automated Testing**: Linting and type checking on every push
+- **Build Verification**: Ensures the application builds successfully
+- **Preview Deployments**: Automatic preview deployments for pull requests
+- **Production Deployments**: Automatic production deployments from the main branch
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/328344cb-5294-41e1-ac38-2231ff663ab6) and start prompting.
+### Setup Instructions
 
-Changes made via Lovable will be committed automatically to this repo.
+#### 1. Vercel Setup
 
-**Use your preferred IDE**
+1. Connect your GitHub repository to Vercel
+2. Get your Vercel tokens and IDs:
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Navigate to Settings → Tokens
+   - Create a new token
+   - Get your Organization ID and Project ID
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+#### 2. GitHub Secrets
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Add the following secrets to your GitHub repository (Settings → Secrets and variables → Actions):
 
-Follow these steps:
+- `VERCEL_TOKEN`: Your Vercel API token
+- `VERCEL_ORG_ID`: Your Vercel organization ID
+- `VERCEL_PROJECT_ID`: Your Vercel project ID
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### 3. Branch Protection (Recommended)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Set up branch protection rules for the `main` branch:
+- Require status checks to pass before merging
+- Require branches to be up to date before merging
+- Include administrators in these restrictions
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Workflow Details
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+#### Main CI/CD Pipeline (`.github/workflows/ci-cd.yml`)
+
+- **Triggers**: Push to `main`/`develop` branches, pull requests to `main`
+- **Jobs**:
+  1. **Lint and Test**: Runs ESLint and TypeScript type checking
+  2. **Build**: Builds the application and uploads artifacts
+  3. **Deploy**: Deploys to Vercel production (only on `main` branch)
+
+#### Preview Pipeline (`.github/workflows/preview.yml`)
+
+- **Triggers**: Pull requests to `main`
+- **Purpose**: Creates preview deployments for code review
+- **Features**: Full testing, building, and preview deployment
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+### Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Make sure to configure your environment variables in Vercel:
+- Firebase configuration
+- API keys
+- Other sensitive data
 
-**Use GitHub Codespaces**
+### Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The application will automatically deploy to Vercel when:
+- Code is pushed to the `main` branch (production deployment)
+- A pull request is created (preview deployment)
 
-## What technologies are used for this project?
+## 🛠️ Tech Stack
 
-This project is built with:
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Deployment**: Vercel
+- **CI/CD**: GitHub Actions
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── landing/        # Landing page components
+│   ├── layout/         # Layout components
+│   └── ui/            # shadcn/ui components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── pages/              # Page components
+└── main.tsx           # Application entry point
+```
 
-Simply open [Lovable](https://lovable.dev/projects/328344cb-5294-41e1-ac38-2231ff663ab6) and click on Share -> Publish.
+## 🤝 Contributing
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Create a feature branch from `develop`
+2. Make your changes
+3. Run tests: `npm run lint`
+4. Create a pull request to `main`
+5. The CI/CD pipeline will automatically create a preview deployment
+6. After review and approval, merge to trigger production deployment
