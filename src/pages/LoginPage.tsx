@@ -41,40 +41,45 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-background relative">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
+      
+      <div className="glass-blur-card rounded-2xl p-8 w-full max-w-md relative z-10">
+        <h2 className="text-2xl font-bold mb-6 text-center text-foreground">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-gray-700 mb-1">Email</label>
+            <label htmlFor="email" className="block text-muted-foreground mb-1">Email</label>
             <input
               type="email"
               id="email"
-              className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-700 mb-1">Password</label>
+            <label htmlFor="password" className="block text-muted-foreground mb-1">Password</label>
             <input
               type="password"
               id="password"
-              className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          {error && <div className="text-red-500 text-sm">{error}</div>}
+          {error && <div className="text-destructive text-sm">{error}</div>}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? 'Logging In...' : 'Login'}
           </Button>
         </form>
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{' '}
-          <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link>
+          <Link to="/signup" className="text-primary hover:text-primary/80 transition-colors">Sign Up</Link>
         </p>
       </div>
     </div>

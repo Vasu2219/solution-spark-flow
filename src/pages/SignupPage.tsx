@@ -41,25 +41,30 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <div className="min-h-screen flex items-center justify-center bg-background relative">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
+      
+      <div className="glass-blur-card rounded-2xl p-8 w-full max-w-md relative z-10">
+        <h2 className="text-2xl font-bold mb-6 text-center text-foreground">Sign Up</h2>
         <form className="space-y-4" onSubmit={e => { e.preventDefault(); handleSignUp(); }}>
           <div>
-            <label className="block text-gray-700 mb-1">Email</label>
+            <label className="block text-muted-foreground mb-1">Email</label>
             <input
               type="email"
-              className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700 mb-1">Password</label>
+            <label className="block text-muted-foreground mb-1">Password</label>
             <input
               type="password"
-              className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -69,9 +74,9 @@ const SignupPage: React.FC = () => {
             {loading ? 'Signing Up...' : 'Sign Up'}
           </Button>
         </form>
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-muted-foreground">
           Already have an account?{' '}
-          <Button variant="link" type="button" onClick={() => navigate('/login')} className="p-0 h-auto align-baseline">Login</Button>
+          <Button variant="link" type="button" onClick={() => navigate('/login')} className="p-0 h-auto align-baseline text-primary hover:text-primary/80">Login</Button>
         </p>
       </div>
     </div>

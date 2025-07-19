@@ -120,15 +120,15 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
         return (
           <>
             {/* Welcome Section */}
-            <div className="bg-white rounded shadow p-6 mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div className="glass-blur-card rounded-xl p-6 mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
-                <div className="text-2xl mb-1">👋 Welcome, {user?.name || 'User'}!</div>
-                <div className="text-gray-600 text-sm">{currentTime.toLocaleDateString()} {currentTime.toLocaleTimeString()}</div>
+                <div className="text-2xl mb-1 text-foreground">👋 Welcome, {user?.name || 'User'}!</div>
+                <div className="text-muted-foreground text-sm">{currentTime.toLocaleDateString()} {currentTime.toLocaleTimeString()}</div>
                 <div className="text-blue-700 mt-2 italic text-sm">“Success is not the key to happiness. Happiness is the key to success.”</div>
               </div>
             </div>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">My Projects</h2>
+              <h2 className="text-xl font-semibold text-foreground">My Projects</h2>
               <Button onClick={() => setShowProjectModal(true)} className="flex items-center"><Plus className="w-4 h-4 mr-2" /> Register New Project</Button>
             </div>
             {renderProjectsTable()}
@@ -139,7 +139,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
         return (
           <div ref={projectsSectionRef}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">My Projects</h2>
+              <h2 className="text-xl font-semibold text-foreground">My Projects</h2>
               <Button onClick={() => setShowProjectModal(true)} className="flex items-center"><Plus className="w-4 h-4 mr-2" /> Register New Project</Button>
             </div>
             {renderProjectsTable()}
@@ -149,10 +149,10 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
         return renderNotificationsPanel();
       case 'profile':
         return (
-          <div className="bg-white rounded shadow p-8 max-w-lg mx-auto">
-            <h2 className="text-xl font-bold mb-4">Profile</h2>
-            <div className="mb-2"><span className="font-semibold">Name:</span> {user?.name || 'User Name'}</div>
-            <div className="mb-2"><span className="font-semibold">Email:</span> {user?.email || 'user@email.com'}</div>
+          <div className="glass-blur-card rounded-xl p-8 max-w-lg mx-auto">
+            <h2 className="text-xl font-bold mb-4 text-foreground">Profile</h2>
+            <div className="mb-2 text-foreground"><span className="font-semibold">Name:</span> {user?.name || 'User Name'}</div>
+            <div className="mb-2 text-foreground"><span className="font-semibold">Email:</span> {user?.email || 'user@email.com'}</div>
             {/* Add more profile info or edit form here */}
           </div>
         );
@@ -163,28 +163,28 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
 
   function renderProjectsTable() {
     return (
-      <div className="bg-white rounded shadow p-4 mb-8">
+      <div className="glass-blur-card rounded-xl p-4 mb-8">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="px-4 py-2 text-left">Project Title</th>
-              <th className="px-4 py-2 text-left">Status</th>
-              <th className="px-4 py-2 text-left">Current Phase</th>
-              <th className="px-4 py-2 text-left">Due Date</th>
-              <th className="px-4 py-2 text-left">Actions</th>
+            <tr className="glass-blur-light rounded">
+              <th className="px-4 py-2 text-left text-foreground">Project Title</th>
+              <th className="px-4 py-2 text-left text-foreground">Status</th>
+              <th className="px-4 py-2 text-left text-foreground">Current Phase</th>
+              <th className="px-4 py-2 text-left text-foreground">Due Date</th>
+              <th className="px-4 py-2 text-left text-foreground">Actions</th>
             </tr>
           </thead>
           <tbody>
             {projects.map((proj) => (
               <tr
                 key={proj.id}
-                className="border-b cursor-pointer hover:bg-blue-50 transition"
+                className="border-b border-border cursor-pointer hover:bg-muted/30 transition"
                 onClick={() => setShowDetails(proj)}
               >
-                <td className="px-4 py-2 font-medium text-blue-700 underline hover:text-blue-900" onClick={e => { e.stopPropagation(); setShowDetails(proj); }}>{proj.title}</td>
-                <td className="px-4 py-2">{proj.status}</td>
-                <td className="px-4 py-2">{proj.phase}</td>
-                <td className="px-4 py-2">{proj.due}</td>
+                <td className="px-4 py-2 font-medium text-primary underline hover:text-primary/80" onClick={e => { e.stopPropagation(); setShowDetails(proj); }}>{proj.title}</td>
+                <td className="px-4 py-2 text-foreground">{proj.status}</td>
+                <td className="px-4 py-2 text-foreground">{proj.phase}</td>
+                <td className="px-4 py-2 text-foreground">{proj.due}</td>
                 <td className="px-4 py-2 space-x-2">
                   <Button size="sm" variant="outline" className="inline-flex items-center" onClick={e => { e.stopPropagation(); setShowDetails(proj); }}><Eye className="w-4 h-4 mr-1" />View</Button>
                   <Button size="sm" variant="outline" className="inline-flex items-center"><Edit className="w-4 h-4 mr-1" />Edit</Button>
@@ -199,9 +199,9 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
 
   function renderNotificationsPanel() {
     return (
-      <div className="bg-white rounded shadow p-4 mb-8">
-        <h3 className="text-lg font-semibold mb-2 flex items-center"><Bell className="w-5 h-5 mr-2 text-blue-700" />Notifications</h3>
-        <ul className="list-disc pl-6 text-sm text-gray-700">
+      <div className="glass-blur-card rounded-xl p-4 mb-8">
+        <h3 className="text-lg font-semibold mb-2 flex items-center text-foreground"><Bell className="w-5 h-5 mr-2 text-primary" />Notifications</h3>
+        <ul className="list-disc pl-6 text-sm text-muted-foreground">
           <li>PPT uploaded for 'Smart Mirror'</li>
           <li>Final Report due by July 28</li>
           <li>Mentor left feedback</li>
@@ -211,9 +211,11 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
   }
 
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="min-h-screen flex bg-background relative">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-10"></div>
       {/* Sidebar */}
-      <aside className="w-64 bg-blue-900 text-white flex flex-col py-6 px-4 min-h-screen">
+      <aside className="w-64 glass-blur text-white flex flex-col py-6 px-4 min-h-screen relative z-10">
         <div className="flex items-center mb-8">
           <img src="/favicon.ico" alt="Logo" className="h-8 w-8 mr-2" />
           <span className="text-xl font-bold tracking-wide">Project Portal</span>
@@ -225,7 +227,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
                 <a
                   href="#"
                   onClick={e => { e.preventDefault(); handleSidebarClick(section.key); }}
-                  className={`flex items-center px-3 py-2 rounded transition ${activeSection === section.key ? 'bg-blue-800 font-semibold' : 'hover:bg-blue-800'}`}
+                  className={`flex items-center px-3 py-2 rounded transition ${activeSection === section.key ? 'bg-primary/30 font-semibold' : 'hover:bg-primary/20'}`}
                 >
                   {section.icon}{section.label}
                 </a>
@@ -238,42 +240,42 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Top Bar */}
-        <header className="bg-white shadow flex items-center justify-between px-8 py-4">
-          <h1 className="text-2xl font-bold capitalize">{SIDEBAR_SECTIONS.find(s => s.key === activeSection)?.label || 'Dashboard'}</h1>
+        <header className="glass-blur-header flex items-center justify-between px-8 py-4 relative z-10">
+          <h1 className="text-2xl font-bold capitalize text-foreground">{SIDEBAR_SECTIONS.find(s => s.key === activeSection)?.label || 'Dashboard'}</h1>
           <div className="flex items-center space-x-4">
-            <span className="font-semibold text-gray-700">{user?.email || 'user@email.com'}</span>
-            <div className="bg-gray-200 rounded-full h-9 w-9 flex items-center justify-center">
-              <User className="text-gray-500 w-6 h-6" />
+            <span className="font-semibold text-muted-foreground">{user?.email || 'user@email.com'}</span>
+            <div className="glass-blur-light rounded-full h-9 w-9 flex items-center justify-center">
+              <User className="text-primary w-6 h-6" />
             </div>
           </div>
         </header>
 
         {/* Content Area */}
-        <main className="flex-1 p-8 overflow-y-auto">
+        <main className="flex-1 p-8 overflow-y-auto relative z-10">
           {renderMainContent()}
 
           {/* Project Registration Modal */}
           {showProjectModal && (
-            <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-              <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg relative">
-                <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={() => setShowProjectModal(false)}>&times;</button>
-                <h2 className="text-xl font-bold mb-4">Register New Project</h2>
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-sm">
+              <div className="glass-blur-card rounded-2xl p-8 w-full max-w-lg relative">
+                <button className="absolute top-2 right-2 text-muted-foreground hover:text-foreground text-2xl" onClick={() => setShowProjectModal(false)}>&times;</button>
+                <h2 className="text-xl font-bold mb-4 text-foreground">Register New Project</h2>
                 <form className="space-y-4" onSubmit={handleProjectSubmit}>
                   <div>
-                    <label className="block text-gray-700 mb-1">Title</label>
-                    <input name="title" value={form.title} onChange={handleFormChange} className="border rounded w-full py-2 px-3" placeholder="Project Title" required />
+                    <label className="block text-muted-foreground mb-1">Title</label>
+                    <input name="title" value={form.title} onChange={handleFormChange} className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground" placeholder="Project Title" required />
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-1">Idea Description</label>
-                    <textarea name="description" value={form.description} onChange={handleFormChange} className="border rounded w-full py-2 px-3" placeholder="Describe your idea" required />
+                    <label className="block text-muted-foreground mb-1">Idea Description</label>
+                    <textarea name="description" value={form.description} onChange={handleFormChange} className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground" placeholder="Describe your idea" required />
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-1">Tech Stack (optional)</label>
-                    <input name="techStack" value={form.techStack} onChange={handleFormChange} className="border rounded w-full py-2 px-3" placeholder="e.g. React, Node.js" />
+                    <label className="block text-muted-foreground mb-1">Tech Stack (optional)</label>
+                    <input name="techStack" value={form.techStack} onChange={handleFormChange} className="glass-blur-light rounded w-full py-3 px-4 text-foreground placeholder:text-muted-foreground" placeholder="e.g. React, Node.js" />
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-1">Target Deadline (optional)</label>
-                    <input name="deadline" type="date" value={form.deadline} onChange={handleFormChange} className="border rounded w-full py-2 px-3" />
+                    <label className="block text-muted-foreground mb-1">Target Deadline (optional)</label>
+                    <input name="deadline" type="date" value={form.deadline} onChange={handleFormChange} className="glass-blur-light rounded w-full py-3 px-4 text-foreground" />
                   </div>
                   <div className="flex justify-end">
                     <Button type="submit">Submit Project</Button>
@@ -285,15 +287,15 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
 
           {/* Project Details Modal */}
           {showDetails && (
-            <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-              <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg relative">
-                <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={() => setShowDetails(null)}>&times;</button>
-                <h2 className="text-xl font-bold mb-4">{showDetails.title}</h2>
-                <div className="mb-2"><span className="font-semibold">Description:</span> {showDetails.description}</div>
-                <div className="mb-2"><span className="font-semibold">Tech Stack:</span> {showDetails.techStack || '-'}</div>
-                <div className="mb-2"><span className="font-semibold">Deadline:</span> {showDetails.due}</div>
-                <div className="mb-2"><span className="font-semibold">Status:</span> {showDetails.status}</div>
-                <div className="mb-2"><span className="font-semibold">Phase:</span> {showDetails.phase}</div>
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-sm">
+              <div className="glass-blur-card rounded-2xl p-8 w-full max-w-lg relative">
+                <button className="absolute top-2 right-2 text-muted-foreground hover:text-foreground text-2xl" onClick={() => setShowDetails(null)}>&times;</button>
+                <h2 className="text-xl font-bold mb-4 text-foreground">{showDetails.title}</h2>
+                <div className="mb-2 text-foreground"><span className="font-semibold">Description:</span> {showDetails.description}</div>
+                <div className="mb-2 text-foreground"><span className="font-semibold">Tech Stack:</span> {showDetails.techStack || '-'}</div>
+                <div className="mb-2 text-foreground"><span className="font-semibold">Deadline:</span> {showDetails.due}</div>
+                <div className="mb-2 text-foreground"><span className="font-semibold">Status:</span> {showDetails.status}</div>
+                <div className="mb-2 text-foreground"><span className="font-semibold">Phase:</span> {showDetails.phase}</div>
                 {/* Add more details as needed */}
               </div>
             </div>

@@ -10,7 +10,7 @@ export const Header = ({ user }: { user?: any }) => {
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/90 text-white">
+    <header className="sticky top-0 z-50 w-full glass-blur-header text-white">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -35,10 +35,10 @@ export const Header = ({ user }: { user?: any }) => {
                   <span className="hidden sm:inline">Profile</span>
                 </Button>
                 {profileOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg z-50">
-                    <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
-                    <Link to="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
-                    <button className="block w-full text-left px-4 py-2 hover:bg-gray-100" onClick={() => { /* TODO: handle logout */ }}>Logout</button>
+                  <div className="absolute right-0 mt-2 w-48 glass-blur-card rounded-lg z-50">
+                    <Link to="/profile" className="block px-4 py-2 text-foreground hover:bg-muted rounded">Profile</Link>
+                    <Link to="/settings" className="block px-4 py-2 text-foreground hover:bg-muted rounded">Settings</Link>
+                    <button className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded" onClick={() => { /* TODO: handle logout */ }}>Logout</button>
                   </div>
                 )}
               </div>
@@ -72,7 +72,7 @@ export const Header = ({ user }: { user?: any }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-primary/95 border-t border-white/10">
+            <div className="px-2 pt-2 pb-3 space-y-1 glass-blur border-t border-white/10">
               {user ? (
                 <Link to="/dashboard" className="block px-3 py-2 text-white/80 hover:text-white font-semibold">Dashboard</Link>
               ) : null}
