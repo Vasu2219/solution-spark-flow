@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Home, FileText, User, Bell, Plus, Edit, Eye } from 'lucide-react';
 import { db } from '../firebaseConfig';
 import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
+import { sendMail } from '@/lib/sendMail';
+import { doc as firestoreDoc, getDoc } from 'firebase/firestore';
 
 interface Project {
   id: string;
@@ -100,6 +102,17 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user }) => {
     // Save to Firestore
     if (user?.uid) {
       await setDoc(doc(db, `users/${user.uid}/projects/${newProject.id}`), newProject);
+      // Fetch user email from Firestore
+      const userDoc = await getDoc(firestoreDoc(db, 'users', user.uid));
+      const userEmail = userDoc.exists() ? userDoc.data().email : null;
+      if (userEmail) {
+        await sendMail({
+          to: [userEmail, 'projeevo@outlook.com'],
+          subject: 'Project Registration Confirmation',
+          text: `Your project "${newProject.title}" has been registered successfully!`,
+          html: `<b>Your project "${newProject.title}" has been registered successfully!</b>`
+        });
+      }
     }
   }
 
